@@ -28,7 +28,7 @@ class Queue {
     }
 
     getUnderlyingList() {
-        return this.last;
+        return this.queue;
     }
 
     enqueue(value) {
@@ -42,8 +42,9 @@ class Queue {
     }
 
     dequeue() {
-        let el;
-        return this.queue.value
+        let el = this.queue.value;
+        this.queue = this.queue.next;
+        return el;
     }
 }
 
