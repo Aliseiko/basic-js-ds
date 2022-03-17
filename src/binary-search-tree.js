@@ -21,14 +21,13 @@ class BinarySearchTree {
   }
 
   root() {
-    return (this.tree === null) ? this.tree : this.tree.data;
+    return this.tree;
   }
 
   add(data) {
     const addNode = tree => {
-      console.log(tree, this.tree)
       if (tree === null) {
-        tree = new Node(data);
+        this.tree = new Node(data);
       } else if (data < tree.data) {
         if (tree.left === null) {
           tree.left = new Node(data);
