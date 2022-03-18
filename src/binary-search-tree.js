@@ -46,14 +46,23 @@ class BinarySearchTree {
 
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    if (this.find(data) !== null) return true;
+    return false;
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    let node = this.tree;
+    while (node !== null) {
+      if (node.data === data) {
+        return node;
+      } else if (data < node.data) {
+        node = node.left;
+      } else if (data > node.data) {
+        node = node.right;
+      }
+    }
+    return null
   }
 
   remove(/* data */) {
