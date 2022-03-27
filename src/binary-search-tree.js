@@ -43,16 +43,14 @@ class BinarySearchTree {
       }
     }
     addNode(this.tree)
-
   }
 
   has(data) {
-    if (this.find(data) !== null) return true;
-    return false;
+    return this.find(data) !== null;
   }
 
-  find(data) {
-    let node = this.tree;
+  find(data, root = this.tree) {
+    let node = root;
     while (node !== null) {
       if (node.data === data) {
         return node;
@@ -65,15 +63,16 @@ class BinarySearchTree {
     return null
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  remove(data) {
+    if (!this.has(data)) return;
+
+
   }
 
-  min() {
-    if (this.tree === null) return null;
-    let min = this.tree.data,
-        node = this.tree;
+  min(root = this.tree) {
+    if (root === null) return null;
+    let min = root.data,
+        node = root;
 
     while (node.left !== null) {
       min = node.left.data;
